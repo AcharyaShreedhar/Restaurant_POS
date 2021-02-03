@@ -3,7 +3,6 @@ import { Row, Table,Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { isNil, isEmpty } from 'ramda'
 import { getEmployees } from '../actions';
-import Navbar from './NavigationBar'
 
 
 
@@ -46,7 +45,6 @@ const LandingPage = ({ employees, getEmployees }) => {
             </Row>
             <Row className="d-flex align-center">
                 <Button className="btn-success" onClick={getEmployees}>Press to see Employees</Button>
-                <Navbar />
             </Row>
         </Fragment>
     )
