@@ -23,7 +23,6 @@ app.use(cors())
 app.get("/api/v1/employees", async (req, res) => {
     try {
         const results = await db.query('SELECT * FROM employee')
-        console.log('results:', results)
 
         res.status(200).json({
             status: "success",
