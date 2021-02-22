@@ -19,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     user_phone: DataTypes.ARRAY,
     user_email: DataTypes.VARCHAR(320),
     user_dob: DataTypes.DATE,
-    user_pass: DataTypes.VARCHAR(255)
+    user_pass: DataTypes.VARCHAR(255),
+    user_gender:DataTypes.VARCHAR(6),
+    createdAt:DataTypes.DATE,
+    updatedAt:DataTypes.DATE
+    
   }, {
     sequelize,
     modelName: 'users',
