@@ -16,12 +16,14 @@ module.exports = (sequelize, DataTypes) => {
   customers.init({
     cust_name: DataTypes.VARCHAR(100),
     cust_address:DataTypes.JSON,
-    cust_phone:DataTypes.ARRAY(DataTypes.VARCHAR(100)),
+    cust_phone:DataTypes.ARRAY,
     cust_email:DataTypes.VARCHAR(320),
-    cust_company:DataTypes.VARCHAR(100),
     cust_dob:DataTypes.DATE,
     cust_pass:DataTypes.VARCHAR(255),
-    user_id:DataTypes.INTEGER
+    cust_company:DataTypes.VARCHAR(100),
+    createdAt:DataTypes.DATE,
+    updatedAt:DataTypes.DATE
+    // user_id:DataTypes.INTEGER
 
   }, {
     sequelize,
