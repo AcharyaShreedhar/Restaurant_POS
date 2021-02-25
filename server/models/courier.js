@@ -18,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     courier_name: DataTypes.VARCHAR(100),
     courier_comp: DataTypes.VARCHAR(100),
     courier_phone: DataTypes.ARRAY,
-    courier_address: DataTypes.JSON
+    courier_address: DataTypes.JSON,
+    createdAt:DataTypes.DATE,
+    updatedAt:DataTypes.DATE
   }, {
     sequelize,
     modelName: 'courier',
