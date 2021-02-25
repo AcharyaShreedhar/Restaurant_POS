@@ -17,10 +17,12 @@ app.use(cors());
 const usersRoutes = require("./routes/usersRoutes");
 const customersRoutes = require("./routes/customersRoutes");
 const couriersRoutes = require("./routes/courierRoutes");
+const suppliersRoutes = require("./routes/supplierRoutes");
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
 app.use("/api/v1", couriersRoutes);
+app.use("/api/v1", suppliersRoutes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
