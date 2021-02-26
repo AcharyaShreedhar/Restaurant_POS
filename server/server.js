@@ -18,11 +18,13 @@ const usersRoutes = require("./routes/usersRoutes");
 const customersRoutes = require("./routes/customersRoutes");
 const couriersRoutes = require("./routes/courierRoutes");
 const suppliersRoutes = require("./routes/supplierRoutes");
+const feedbacksRoutes = require("./routes/feedbackRoutes");
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
 app.use("/api/v1", couriersRoutes);
 app.use("/api/v1", suppliersRoutes);
+app.use("/api/v1", feedbacksRoutes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
