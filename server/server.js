@@ -23,6 +23,7 @@ const specialMenuRoutes = require("./routes/specialMenuRoutes");
 const discountRoutes = require("./routes/discountRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const itemRoutes = require("./routes/itemRoutes");
+const inventoryRoutes = require("./routes/inventoryRoutes");
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
@@ -33,6 +34,7 @@ app.use("/api/v1", specialMenuRoutes);
 app.use("/api/v1", discountRoutes);
 app.use("/api/v1", orderRoutes);
 app.use("/api/v1", itemRoutes);
+app.use("/api/v1", inventoryRoutes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
