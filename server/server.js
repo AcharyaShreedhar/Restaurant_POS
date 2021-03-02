@@ -22,6 +22,7 @@ const feedbacksRoutes = require("./routes/feedbackRoutes");
 const specialMenuRoutes = require("./routes/specialMenuRoutes");
 const discountRoutes = require("./routes/discountRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const itemRoutes = require("./routes/itemRoutes");
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
@@ -31,6 +32,7 @@ app.use("/api/v1", feedbacksRoutes);
 app.use("/api/v1", specialMenuRoutes);
 app.use("/api/v1", discountRoutes);
 app.use("/api/v1", orderRoutes);
+app.use("/api/v1", itemRoutes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
