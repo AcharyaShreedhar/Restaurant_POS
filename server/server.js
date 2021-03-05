@@ -27,6 +27,7 @@ const inventoryRoutes = require("./routes/inventoryRoutes");
 const purchaseRoutes = require("./routes/purchaseRoutes");
 const userRolesRoutes = require("./routes/userRolesRoutes");
 const restaurantTableRoutes = require("./routes/restaurantTableRoutes");
+const orderedItemsRoutes = require("./routes/orderedItemRoutes");
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
@@ -41,6 +42,7 @@ app.use("/api/v1", inventoryRoutes);
 app.use("/api/v1", purchaseRoutes);
 app.use("/api/v1", userRolesRoutes);
 app.use("/api/v1", restaurantTableRoutes);
+app.use("/api/v1", orderedItemsRoutes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
