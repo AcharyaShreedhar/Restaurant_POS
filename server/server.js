@@ -28,6 +28,7 @@ const purchaseRoutes = require("./routes/purchaseRoutes");
 const userRolesRoutes = require("./routes/userRolesRoutes");
 const restaurantTableRoutes = require("./routes/restaurantTableRoutes");
 const orderedItemsRoutes = require("./routes/orderedItemRoutes");
+const itemCategoryRoutes = require("./routes/itemCategoryRoutes");
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
@@ -43,6 +44,7 @@ app.use("/api/v1", purchaseRoutes);
 app.use("/api/v1", userRolesRoutes);
 app.use("/api/v1", restaurantTableRoutes);
 app.use("/api/v1", orderedItemsRoutes);
+app.use("/api/v1", itemCategoryRoutes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
