@@ -1,7 +1,7 @@
 const db = require("../db");
 
 //get all orderss
-exports.getAllOrder = async (req, res) => {
+exports.getAllOrders = async (req, res) => {
   const getAllOrderQuery = "SELECT * FROM orders";
   try {
     const results = await db.query(getAllOrderQuery);
