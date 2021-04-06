@@ -33,6 +33,7 @@ const inventoryCategoryRoutes = require("./routes/inventoryCategoryRoutes");
 const rolesRoutes = require("./routes/rolesRoutes");
 const offeredItemsRoutes = require("./routes/offeredItemRoutes");
 
+const offersController = require("./routes/offersRoute");
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
@@ -53,6 +54,7 @@ app.use("/api/v1", inventoryCategoryRoutes);
 app.use("/api/v1", rolesRoutes);
 app.use("/api/v1", offeredItemsRoutes);
 
+app.use("/api/v1",offersController);
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is up and listening on port ${port}`);
