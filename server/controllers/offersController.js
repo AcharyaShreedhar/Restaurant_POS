@@ -34,15 +34,17 @@ exports.getOffer = async (req, res) => {
   }
 };
 
-// add/place an Offer
+// add place an Offer
 exports.addOffer = async (req, res) => {
   const addOfferQuery =
-    "INSERT INTO offers (offer_id,item_id) values ($1,$2) returning *";
+    "INSERT INTO offers (offer_type,item_id,,offer_start,offer_end) values ($1,$2,$3,$4) returning *";
 
   try {
     const results = await db.query(addOfferQuery, [
-      req.body.offer_id,
+      req.body.offer_start,
       req.body.item_id,
+      req.body.offer_start,
+      req.body.offer_end
     ]);
     res.status(200).json({
       status: "success",
