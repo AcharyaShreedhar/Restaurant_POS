@@ -19,9 +19,9 @@ exports.getAllInventoryCategories = async (req, res) => {
 
 // get a Inventory Category
 exports.getInventoryCategory = async (req, res) => {
-  const getItemCategoryQuery = "SELECT * FROM inventory_categories WHERE cat_id=$1";
+  const getItemCategoryQuery = "SELECT * FROM inventory_categories WHERE invent_cat_id=$1";
   try {
-    const results = await db.query(getInventoryCategoryQuery, [req.params.catId]);
+    const results = await db.query(getInventoryCategoryQuery, [req.params.inventCatId]);
     res.status(200).json({
       status: "success",
       results: results.rows.length,
@@ -37,12 +37,12 @@ exports.getInventoryCategory = async (req, res) => {
 // add an Inventory Category
 exports.addInventoryCategory = async (req, res) => {
   const addInventoryCategoryQuery =
-    "INSERT INTO inventory_categories (parent_cat_id,cat_name) values ($1,$2) returning *";
+    "INSERT INTO inventory_categories (invent_cat_name,supplier_id) values ($1,$2) returning *";
 
   try {
     const results = await db.query(addInventoryCategoryQuery, [
-      req.body.parent_cat_id,
-      req.body.cat_name,
+      req.body.invent_cat_name,
+      req.body.supplier_id,
     ]);
     res.status(200).json({
       status: "success",
@@ -58,12 +58,12 @@ exports.addInventoryCategory = async (req, res) => {
 // update Inventory Category
 exports.updateInventoryCategory = async (req, res) => {
   const updateInventoryCategoryQuery =
-    "UPDATE inventory_categories SET parent_cat_id=$1, cat_name=$2  WHERE cat_id=$3 returning *";
+    "UPDATE inventory_categories SET invent_cat_name=$1, supplier_id=$2  WHERE invent_cat_id=$3 returning *";
   try {
     const results = await db.query(updateInventoryCategoryQuery, [
-      req.body.parent_cat_id,
-      req.body.cat_name,
-      req.params.catId,
+      req.body.invent_cat_name,
+      req.body.supplier_id,
+      req.params.inventCatId,
     ]);
     res.status(200).json({
       status: "success",
@@ -79,9 +79,9 @@ exports.updateInventoryCategory = async (req, res) => {
 //Delete an inventory Category
 exports.deleteInventoryCategory = async (req, res) => {
   const deleteInventoryCategoryQuery =
-    "DELETE  FROM inventory_categories WHERE cat_id=$1";
+    "DELETE  FROM inventory_categories WHERE invent_cat_id=$1";
   try {
-    const results = await db.query(deleteInventoryCategoryQuery, [req.params.catId]);
+    const results = await db.query(deleteInventoryCategoryQuery, [req.params.inventCatId]);
     res.status(200).json({
       status: "success",
     });
