@@ -21,7 +21,7 @@ exports.getAllRoles = async (req, res) => {
 exports.getRole = async (req, res) => {
   const getRoleQuery = "SELECT * FROM roles WHERE role_id=$1";
   try {
-    const results = await db.query(getRoleQuery, [req.params.userId]);
+    const results = await db.query(getRoleQuery, [req.params.roleId]);
     res.status(200).json({
       status: "success",
       results: results.rows.length,
@@ -37,7 +37,7 @@ exports.getRole = async (req, res) => {
 // add user Role
 exports.addUserRole = async (req, res) => {
   const addRoleQuery =
-    "INSERT INTO roles (role_name,role_id) values ($1,$2) returning *";
+    "INSERT INTO roles (role_name) values ($1) returning *";
 
   try {
     const results = await db.query(addRoleQuery, [
@@ -58,7 +58,7 @@ exports.addUserRole = async (req, res) => {
 // update UserRole
 exports.updateUserRole = async (req, res) => {
   const updateRoleQuery =
-    "UPDATE roles SET role_id=$1  WHERE user_id=$2 returning *";
+    "UPDATE roles SET role_name=$1  WHERE role_id=$2 returning *";
   try {
     const results = await db.query(updateRoleQuery, [
       req.body.role_id,
@@ -77,9 +77,9 @@ exports.updateUserRole = async (req, res) => {
 
 //Delete Role
 exports.deleteRole = async (req, res) => {
-  const deleteRoleQuery = "DELETE  FROM roles WHERE role_name=$1";
+  const deleteRoleQuery = "DELETE  FROM roles WHERE role_id=$1";
   try {
-    const results = await db.query(deleteRoleQuery, [req.params.orderId]);
+    const results = await db.query(deleteRoleQuery, [req.params.roleId]);
     res.status(200).json({
       status: "success",
     });
