@@ -42,7 +42,6 @@ exports.addUserRole = async (req, res) => {
   try {
     const results = await db.query(addRoleQuery, [
       req.body.role_name,
-      req.body.role_id,
     ]);
     res.status(200).json({
       status: "success",
@@ -61,8 +60,8 @@ exports.updateUserRole = async (req, res) => {
     "UPDATE roles SET role_name=$1  WHERE role_id=$2 returning *";
   try {
     const results = await db.query(updateRoleQuery, [
-      req.body.role_id,
-      req.params.roleName,
+      req.body.role_name,
+      req.params.roleId,
     ]);
     res.status(200).json({
       status: "success",
