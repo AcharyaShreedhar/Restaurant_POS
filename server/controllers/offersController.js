@@ -60,11 +60,13 @@ exports.addOffer = async (req, res) => {
 // update Offer
 exports.updateOffer = async (req, res) => {
   const updateOfferQuery =
-    "UPDATE offer SET offer_id=$1, item_id=$2 WHERE offer_id=$ returning *";
+    "UPDATE offer SET offer_type=$1, item_id=$2,offer_start=$3, offer_end=$4 WHERE offer_id=$5 returning *";
   try {
     const results = await db.query(updateOfferQuery, [
-      req.body.offer_id,
+      req.body.offer_type,
       req.body.item_id,
+      req.body.offer_start,
+      req.body.offer_end
     ]);
     res.status(200).json({
       status: "success",
