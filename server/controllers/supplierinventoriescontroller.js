@@ -17,9 +17,9 @@ exports.getAllSupplierInventories = async (req, res) => {
   }
 };
 
-// get a single supplierInventories
-exports.getSupplierInventories = async (req, res) => {
-  const getSupplierInventoriesQuery = "SELECT * FROM supplierInventories WHERE sup_invent_id=$1";
+// get a single supplierInventory
+exports.getSupplierInventory = async (req, res) => {
+  const getSupplierInventoryQuery = "SELECT * FROM supplierInventories WHERE sup_invent_id=$1";
   try {
     const results = await db.query(getSupplierInventoriesQuery, [req.params.supinventId]);
     res.status(200).json({
