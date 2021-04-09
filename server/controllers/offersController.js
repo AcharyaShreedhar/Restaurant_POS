@@ -67,7 +67,7 @@ exports.updateOffer = async (req, res) => {
       req.body.itemId,
       req.body.offerStart,
       req.body.offerEnd,
-      req.body.offerId
+      req.params.offerId
     ]);
     res.status(200).json({
       status: "success",
