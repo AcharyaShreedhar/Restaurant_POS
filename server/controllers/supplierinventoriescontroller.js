@@ -9,7 +9,7 @@ exports.getAllSupplierInventories = async (req, res) => {
       status: "success",
       results: results.rows.length,
       data: {
-        suppliers: results.rows,
+        supplierInventories: results.rows,
       },
     });
   } catch (error) {
