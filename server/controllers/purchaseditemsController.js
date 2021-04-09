@@ -37,7 +37,7 @@ exports.getPurchaseditems = async (req, res) => {
 // add a Purchaseditems
 exports.addPurchaseditems = async (req, res) => {
   const addPurchaseditemsQuery =
-    "INSERT INTO purchaseditems (invent_id,qty) values ($2,$3) returning *";
+    "INSERT INTO purchaseditems (invent_id,qty) values ($1,$2) returning *";
 
   try {
     const results = await db.query(addPurchaseditemsQuery, [
