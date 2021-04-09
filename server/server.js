@@ -31,6 +31,7 @@ const orderedItemsRoutes = require("./routes/orderedItemRoutes");
 const itemCategoryRoutes = require("./routes/itemCategoryRoutes");
 const inventoryCategoryRoutes = require("./routes/inventoryCategoryRoutes");
 const rolesRoutes = require("./routes/rolesRoutes");
+const offeredItemsRoutes = require("./routes/offeredItemRoutes");
 
 
 app.use("/api/v1", usersRoutes);
@@ -50,6 +51,7 @@ app.use("/api/v1", orderedItemsRoutes);
 app.use("/api/v1", itemCategoryRoutes);
 app.use("/api/v1", inventoryCategoryRoutes);
 app.use("/api/v1", rolesRoutes);
+app.use("/api/v1", offeredItemsRoutes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
