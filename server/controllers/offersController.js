@@ -37,11 +37,11 @@ exports.getOffer = async (req, res) => {
 // add place an Offer
 exports.addOffer = async (req, res) => {
   const addOfferQuery =
-    "INSERT INTO offers (offer_type,item_id,,offer_start,offer_end) values ($1,$2,$3,$4) returning *";
+    "INSERT INTO offers (offer_type,item_id,offer_start,offer_end) values ($1,$2,$3,$4) returning *";
 
   try {
     const results = await db.query(addOfferQuery, [
-      req.body.offer_start,
+      req.body.offerType,
       req.body.item_id,
       req.body.offer_start,
       req.body.offer_end
@@ -60,13 +60,14 @@ exports.addOffer = async (req, res) => {
 // update Offer
 exports.updateOffer = async (req, res) => {
   const updateOfferQuery =
-    "UPDATE offer SET offer_type=$1, item_id=$2,offer_start=$3, offer_end=$4 WHERE offer_id=$5 returning *";
+    "UPDATE offer SET offer_type=$1, item_id=$2, offer_start=$3, offer_end=$4 WHERE offer_id=$5 returning *";
   try {
     const results = await db.query(updateOfferQuery, [
-      req.body.offer_type,
-      req.body.item_id,
-      req.body.offer_start,
-      req.body.offer_end
+      req.body.offerType,
+      req.body.itemId,
+      req.body.offerStart,
+      req.body.offerEnd,
+      req.body.offerId
     ]);
     res.status(200).json({
       status: "success",
@@ -79,7 +80,7 @@ exports.updateOffer = async (req, res) => {
   }
 };
 
-//Delete an order
+//Delete an offer
 exports.deleteOffer = async (req, res) => {
   const deleteOfferQuery = "DELETE  FROM offers WHERE offer_id=$1";
   try {
