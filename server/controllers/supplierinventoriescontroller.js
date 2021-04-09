@@ -26,7 +26,7 @@ exports.getSupplierInventory = async (req, res) => {
       status: "success",
       results: results.rows.length,
       data: {
-        supplierInventories: results.rows[0],
+        supplierInventory: results.rows[0],
       },
     });
   } catch (error) {
