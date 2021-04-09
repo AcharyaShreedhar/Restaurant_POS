@@ -1,6 +1,6 @@
 const db = require("../db");
 
-//get all offered items
+//get all Offered Items
 exports.getAllOfferedItems = async (req, res) => {
   const getAllOfferedItemsQuery = "SELECT * FROM offered_items";
   try {
@@ -18,10 +18,10 @@ exports.getAllOfferedItems = async (req, res) => {
 };
 
 // get a Offered Item
-exports.getOfferedItems = async (req, res) => {
-  const getOfferedItems = "SELECT * FROM offered_items WHERE id=$1";
+exports.getOfferedItem = async (req, res) => {
+  const getOfferedItemQuery = "SELECT * FROM offered_items WHERE id=$1";
   try {
-    const results = await db.query(getOfferedItemsQuery, [req.params.id]);
+    const results = await db.query(getOfferedItemQuery, [req.params.id]);
     res.status(200).json({
       status: "success",
       results: results.rows.length,
@@ -34,13 +34,13 @@ exports.getOfferedItems = async (req, res) => {
   }
 };
 
-// add an offered item
-exports.addOfferedItems = async (req, res) => {
-  const addOfferedItems =
+// add an Offered Item
+exports.addOfferedItem = async (req, res) => {
+  const addOfferedItemQuery =
     "INSERT INTO offered_items (offer_id,item) values ($1,$2) returning *";
 
   try {
-    const results = await db.query(addOfferedItemsQuery, [
+    const results = await db.query(addOfferedItemQuery, [
       req.body.offer_id,
       req.body.item,
     ]);
@@ -77,11 +77,11 @@ exports.updateOfferedItems = async (req, res) => {
 };
 
 //Delete an offered item
-exports.deleteOfferedItems = async (req, res) => {
-  const deleteOfferedItemsQuery =
+exports.deleteOfferedItem = async (req, res) => {
+  const deleteOfferedItemQuery =
     "DELETE  FROM offered_items WHERE id=$1";
   try {
-    const results = await db.query(deleteOfferedItemsQuery, [req.params.id]);
+    const results = await db.query(deleteOfferedItemQuery, [req.params.id]);
     res.status(200).json({
       status: "success",
     });
