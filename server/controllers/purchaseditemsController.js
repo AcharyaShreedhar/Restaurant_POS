@@ -41,7 +41,6 @@ exports.addPurchaseditems = async (req, res) => {
 
   try {
     const results = await db.query(addPurchaseditemsQuery, [
-      req.body.purchase_id,
       req.body.invent_id,
       req.body.qty,
     ]);
