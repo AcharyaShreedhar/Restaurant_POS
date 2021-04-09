@@ -1,10 +1,10 @@
 const db = require("../db");
 
-//get all supplierinventories
-exports.getAllSupplierinventories = async (req, res) => {
-  const getAllSupplierinventoriesQuery = "SELECT * FROM supplierinventories";
+//get all supplierInventories
+exports.getAllSupplierInventories = async (req, res) => {
+  const getAllSupplierInventoriesQuery = "SELECT * FROM supplierInventories";
   try {
-    const results = await db.query(getAllSupplierinventoriesQuery);
+    const results = await db.query(getAllSupplierInventoriesQuery);
     res.status(200).json({
       status: "success",
       results: results.rows.length,
@@ -17,16 +17,16 @@ exports.getAllSupplierinventories = async (req, res) => {
   }
 };
 
-// get a single supplierinventories
-exports.getSupplierinventories = async (req, res) => {
-  const getSupplierinventoriesQuery = "SELECT * FROM supplierinventories WHERE sup_invent_id=$1";
+// get a single supplierInventories
+exports.getSupplierInventories = async (req, res) => {
+  const getSupplierInventoriesQuery = "SELECT * FROM supplierInventories WHERE sup_invent_id=$1";
   try {
-    const results = await db.query(getSupplierinventoriesQuery, [req.params.supinventId]);
+    const results = await db.query(getSupplierInventoriesQuery, [req.params.supinventId]);
     res.status(200).json({
       status: "success",
       results: results.rows.length,
       data: {
-        supplierinventories: results.rows[0],
+        supplierInventories: results.rows[0],
       },
     });
   } catch (error) {
@@ -34,20 +34,20 @@ exports.getSupplierinventories = async (req, res) => {
   }
 };
 
-// add a supplierinventories
-exports.addSupplierinventories = async (req, res) => {
-  const addSupplierinventoriesQuery =
-    "INSERT INTO supplierinventories (invent_cat_id,supplier_id) values ($1,$2) returning *";
+// add a supplierInventories
+exports.addSupplierInventories = async (req, res) => {
+  const addSupplierInventoriesQuery =
+    "INSERT INTO supplierInventories (invent_cat_id,supplier_id) values ($1,$2) returning *";
 
   try {
-    const results = await db.query(addSupplierinventoriesQuery, [
+    const results = await db.query(addSupplierInventoriesQuery, [
       req.body.invent_cat_id,
       req.body.supplier_id,
     ]);
     res.status(200).json({
       status: "success",
       data: {
-        supplierinventories: results.rows[0],
+        supplierInventories: results.rows[0],
       },
     });
   } catch (err) {
@@ -55,12 +55,12 @@ exports.addSupplierinventories = async (req, res) => {
   }
 };
 
-// update supplierinventories
-exports.updateSupplierinventories = async (req, res) => {
-  const updateSupplierinventoriesQuery =
+// update supplierInventories
+exports.updateSupplierInventories = async (req, res) => {
+  const updateSupplierInventoriesQuery =
     "UPDATE suppliers SET invent_cat_id=$1, supplier_id=$2   WHERE sup_invent_id=$3 returning *";
   try {
-    const results = await db.query(updateSupplierinventoriesQuery, [
+    const results = await db.query(updateSupplierInventoriesQuery, [
       req.body.invent_cat_id,
       req.body.supplier_id,
 
@@ -69,18 +69,18 @@ exports.updateSupplierinventories = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        supplierinventories: results.rows[0],
+        supplierInventories: results.rows[0],
       },
     });
   } catch (err) {
     res.status(400).send(err);
   }
 };
-//Delete a Supplierinventories
-exports.deleteSupplierinventories = async (req, res) => {
-  const deleteSupplierinventoriesQuery = "DELETE  FROM supplierinventories WHERE sup_invent_id=$1";
+//Delete a SupplierInventories
+exports.deleteSupplierInventories = async (req, res) => {
+  const deleteSupplierInventoriesQuery = "DELETE  FROM supplierInventories WHERE sup_invent_id=$1";
   try {
-    const results = await db.query(deleteSupplierinventoriesQuery, [
+    const results = await db.query(deleteSupplierInventoriesQuery, [
       req.params.supinventId,
     ]);
     res.status(200).json({
