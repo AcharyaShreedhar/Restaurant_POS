@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   table_reservation.init({
+    reserve_id: DataTypes.INTEGER,
     table_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     cust_id: DataTypes.INTEGER,
