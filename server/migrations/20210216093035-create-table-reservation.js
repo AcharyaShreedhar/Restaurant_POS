@@ -2,10 +2,14 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('table_reservations', {
-      table_id: {
+      reserve_id:{
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      table_id: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       user_id: {
