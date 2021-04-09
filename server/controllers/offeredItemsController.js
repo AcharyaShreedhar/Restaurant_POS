@@ -17,7 +17,7 @@ exports.getAllOfferedItems = async (req, res) => {
   }
 };
 
-// get a Offered Items
+// get a Offered Item
 exports.getOfferedItems = async (req, res) => {
   const getOfferedItems = "SELECT * FROM offered_items WHERE id=$1";
   try {
@@ -34,7 +34,7 @@ exports.getOfferedItems = async (req, res) => {
   }
 };
 
-// add an offer item
+// add an offered item
 exports.addOfferedItems = async (req, res) => {
   const addOfferedItems =
     "INSERT INTO offered_items (offer_id,item) values ($1,$2) returning *";
@@ -55,7 +55,7 @@ exports.addOfferedItems = async (req, res) => {
   }
 };
 
-// update Offer Items
+// update Offered Items
 exports.updateOfferedItems = async (req, res) => {
   const updateOfferedItemsQuery =
     "UPDATE offered_items SET offer_id=$1, item=$2  WHERE id=$3 returning *";
