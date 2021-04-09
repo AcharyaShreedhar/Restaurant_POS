@@ -63,7 +63,6 @@ exports.updateSupplierInventories = async (req, res) => {
     const results = await db.query(updateSupplierInventoriesQuery, [
       req.body.invent_cat_id,
       req.body.supplier_id,
-
       req.params.supinventId,
     ]);
     res.status(200).json({
