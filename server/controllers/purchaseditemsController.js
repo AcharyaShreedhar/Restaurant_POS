@@ -68,7 +68,7 @@ exports.updatePurchaseditems = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        purchaseditmes: results.rows[0],
+        purchaseditems: results.rows[0],
       },
     });
   } catch (err) {
