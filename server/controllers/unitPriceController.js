@@ -65,7 +65,7 @@ exports.updateUnitPrices = async (req, res) => {
     const results = await db.query(updateUnitPricesQuery, [
       req.body.price,
       req.body.unit,
-      req.params.item_id
+      req.params.itemId
 
     ]);
     res.status(200).json({
@@ -85,7 +85,7 @@ exports.deleteUnitPrices = async (req, res) => {
     "DELETE  FROM unit_prices WHERE item_id=$1";
   try {
     const results = await db.query(deleteUnitPricesQuery, [
-      req.params.item_id,
+      req.params.itemId,
     ]);
     res.status(200).json({
       status: "success",
