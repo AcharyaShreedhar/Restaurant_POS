@@ -19,10 +19,10 @@ exports.getAllTableReservation = async (req, res) => {
 
 // get a single table reservation
 exports.getTableReservation = async (req, res) => {
-  const getTableReservationQuery = "SELECT * FROM table_reservations WHERE table_id=$1";
+  const getTableReservationQuery = "SELECT * FROM table_reservations WHERE reserve_id=$1";
   try {
     const results = await db.query(getTableReservationQuery, [
-      req.params.tableId,
+      req.params.reserveId,
     ]);
     res.status(200).json({
       status: "success",
@@ -39,10 +39,11 @@ exports.getTableReservation = async (req, res) => {
 // add a table reservation
 exports.addTableReservation = async (req, res) => {
   const addTableReservationQuery =
-    "INSERT INTO table_reservations (user_id,cust_id,cust_count,start_time,end_time) values ($1,$2,$3,$4,$5) returning *";
+    "INSERT INTO table_reservations (table_id,user_id,cust_id,cust_count,start_time,end_time) values ($1,$2,$3,$4,$5,$6) returning *";
 
   try {
     const results = await db.query(addTableReservationQuery, [
+      req.body.table_id,
       req.body.user_id,
       req.body.cust_id,
       req.body.cust_count,
