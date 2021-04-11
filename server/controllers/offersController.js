@@ -34,7 +34,7 @@ exports.getOffer = async (req, res) => {
   }
 };
 
-// add place an Offer
+// add  an Offer
 exports.addOffer = async (req, res) => {
   const addOfferQuery =
     "INSERT INTO offers (offer_type,item_id,offer_start,offer_end) values ($1,$2,$3,$4) returning *";
