@@ -41,7 +41,7 @@ exports.addOffer = async (req, res) => {
 
   try {
     const results = await db.query(addOfferQuery, [
-      req.body.offerType,
+      req.body.offer_type,
       req.body.item_id,
       req.body.offer_start,
       req.body.offer_end
@@ -63,10 +63,10 @@ exports.updateOffer = async (req, res) => {
     "UPDATE offer SET offer_type=$1, item_id=$2, offer_start=$3, offer_end=$4 WHERE offer_id=$5 returning *";
   try {
     const results = await db.query(updateOfferQuery, [
-      req.body.offerType,
-      req.body.itemId,
-      req.body.offerStart,
-      req.body.offerEnd,
+      req.body.offer_type,
+      req.body.item_id,
+      req.body.offer_start,
+      req.body.offer_end,
       req.params.offerId
     ]);
     res.status(200).json({
