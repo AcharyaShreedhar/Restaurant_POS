@@ -38,6 +38,7 @@ const supplierinventoriesRoutes = require("./routes/supplierinventoriesRoutes");
 
 
 
+
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
 app.use("/api/v1", couriersRoutes);
