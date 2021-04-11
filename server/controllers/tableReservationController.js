@@ -62,10 +62,10 @@ exports.addTableReservation = async (req, res) => {
 
 // update table reservation
 exports.updateTableReservation = async (req, res) => {
-  const updateRestaurantTableReservationQuery =
-    "UPDATE table_reservations SET user_id=$1, cust_id=$2, start_time=$3,cust_count=$4, end_time=$5 table_id=$6   WHERE reserve_id= 7  returning *";
+  const updateTableReservationQuery =
+    "UPDATE table_reservations SET user_id=$1, cust_id=$2, start_time=$3,cust_count=$4, end_time=$5, table_id=$6   WHERE reserve_id= 7  returning *";
   try {
-    const results = await db.query(updateRestaurantTableReservationQuery, [
+    const results = await db.query(updateTableReservationQuery, [
       req.body.user_id,
       req.body.cust_id,
       req.body.start_time,
@@ -86,11 +86,11 @@ exports.updateTableReservation = async (req, res) => {
 };
 
 //Delete a Restaurant Table reservation
-exports.deleteRestaurantTableReservation = async (req, res) => {
-  const deleteRestaurantTableReservationQuery =
-    "DELETE  FROM table_reserations WHERE reserve_id=$1";
+exports.deleteTableReservation = async (req, res) => {
+  const deleteTableReservationQuery =
+    "DELETE  FROM table_reservations WHERE reserve_id=$1";
   try {
-    const results = await db.query(deleteRestaurantTableQuery, [
+    const results = await db.query(deleteTableReservationQuery, [
       req.params.reserveId,
     ]);
     res.status(200).json({
