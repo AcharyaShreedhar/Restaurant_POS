@@ -34,6 +34,10 @@ const rolesRoutes = require("./routes/rolesRoutes");
 const offeredItemsRoutes = require("./routes/offeredItemRoutes");
 const offersRoutes = require("./routes/offersRoute");
 const unitPriceRoutes = require("./routes/unitPriceRoutes");
+const supplierinventoriesRoutes = require("./routes/supplierinventoriesRoutes");
+
+
+
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", customersRoutes);
@@ -55,8 +59,11 @@ app.use("/api/v1", rolesRoutes);
 app.use("/api/v1", offeredItemsRoutes);
 app.use("/api/v1", offersRoutes);
 app.use("/api/v1", unitPriceRoutes);
+app.use("/api/v1", supplierinventoriesRoutes);
+
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is up and listening on port ${port}`);
 });
+
