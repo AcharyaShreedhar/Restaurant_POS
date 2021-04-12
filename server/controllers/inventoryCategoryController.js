@@ -19,7 +19,7 @@ exports.getAllInventoryCategories = async (req, res) => {
 
 // get a Inventory Category
 exports.getInventoryCategory = async (req, res) => {
-  const getItemCategoryQuery = "SELECT * FROM inventory_categories WHERE invent_cat_id=$1";
+  const getInventoryCategoryQuery = "SELECT * FROM inventory_categories WHERE invent_cat_id=$1";
   try {
     const results = await db.query(getInventoryCategoryQuery, [req.params.inventCatId]);
     res.status(200).json({
@@ -79,7 +79,7 @@ exports.updateInventoryCategory = async (req, res) => {
 //Delete an inventory Category
 exports.deleteInventoryCategory = async (req, res) => {
   const deleteInventoryCategoryQuery =
-    "DELETE  FROM inventory_categories WHERE invent_cat_id=$1";
+    "DELETE from inventory_categories WHERE invent_cat_id=$1";
   try {
     const results = await db.query(deleteInventoryCategoryQuery, [req.params.inventCatId]);
     res.status(200).json({
