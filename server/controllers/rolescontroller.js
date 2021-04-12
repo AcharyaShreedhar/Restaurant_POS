@@ -34,8 +34,8 @@ exports.getRole = async (req, res) => {
   }
 };
 
-// add user Role
-exports.addUserRole = async (req, res) => {
+// add  Role
+exports.addRole = async (req, res) => {
   const addRoleQuery =
     "INSERT INTO roles (role_name) values ($1) returning *";
 
@@ -54,8 +54,8 @@ exports.addUserRole = async (req, res) => {
   }
 };
 
-// update UserRole
-exports.updateUserRole = async (req, res) => {
+// update Role
+exports.updateRole = async (req, res) => {
   const updateRoleQuery =
     "UPDATE roles SET role_name=$1  WHERE role_id=$2 returning *";
   try {
