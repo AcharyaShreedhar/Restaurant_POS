@@ -6,7 +6,7 @@ const offeredItemController = require("../controllers/offeredItemController");
 router.get("/offereditems", offeredItemController.getAllOfferedItems);
 router.get("/offereditems/:id", offeredItemController.getOfferedItem);
 router.post("/offereditems", offeredItemController.addOfferedItem);
-router.put("/offereditems/:id", offeredItemController.updateOfferedItem);
+router.put("/offereditems/:id", offeredItemController.updateOfferedItems);
 router.delete("/offereditems/:id", offeredItemController.deleteOfferedItem);
 
 module.exports = router;
