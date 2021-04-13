@@ -60,7 +60,7 @@ exports.updateOfferedItems = async (req, res) => {
   const updateOfferedItemsQuery =
     "UPDATE offered_items SET offer_id=$1, item=$2  WHERE id=$3 returning *";
   try {
-    const results = await db.query(updateOfferedItemsQuery, [
+    const results = await db.query(updateOfferedItemsQuery, [ 
       req.body.offer_id,
       req.body.item,
       req.params.id,
